@@ -1,0 +1,14 @@
+FROM python:3.9-slim-buster
+
+# Install Java
+RUN apt-get update && apt-get install -y default-jre
+
+COPY requirements.txt /app/
+RUN pip install --no-cache-dir -r /app/requirements.txt
+
+COPY flink_enriched.py /app/
+COPY flink-sql-connector-kafka-1.17.0.jar /app/
+
+WORKDIR /app
+
+CMD [ "python", "./flink_enriched.py" ]

@@ -1,0 +1,9 @@
+FROM python:3.9-slim-buster
+
+COPY requirements.txt /app/
+RUN pip install --no-cache-dir -r /app/requirements.txt
+
+WORKDIR /app
+COPY flink_streamlit.py /app/
+
+CMD streamlit run flink_streamlit.py
