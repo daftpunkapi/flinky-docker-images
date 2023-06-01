@@ -30,13 +30,13 @@ services:
       KAFKA_TRANSACTION_STATE_LOG_REPLICATION_FACTOR: 1
       KAFKA_GROUP_INITIAL_REBALANCE_DELAY_MS: 0
 
-  producer:
+  producer_fx:
     image: daftpunkapi/flink_v1:latest
     depends_on:
       - broker
     restart: "on-failure"
 
-  producer_2:
+  producer_ws:
     image: daftpunkapi/flink_w1:latest
     depends_on:
         - broker
