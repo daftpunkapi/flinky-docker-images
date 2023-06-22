@@ -46,16 +46,16 @@ services:
     image: daftpunkapi/flink_enriched:latest
     depends_on:
       - broker
-      - producer
-      - producer_2
+      - producer_ws
+      - producer_fx
     restart: "on-failure"
 
   streamlit:
     image: daftpunkapi/flink_viz:latest
     depends_on:
       - broker
-      - producer
-      - producer_2
+      - producer_ws
+      - producer_fx
     restart: "on-failure"
     ports:
       - "8501:8501"
